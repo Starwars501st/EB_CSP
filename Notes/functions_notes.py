@@ -17,4 +17,4 @@ num_two=14
 add()
 
 def clean(info):
-return info.strip().lower()
+  return info.strip().lower()
