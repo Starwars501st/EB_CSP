@@ -3,7 +3,7 @@
 def welcome():
      
      name = input("What is your name?")
-    print(f"Hello {name}!")
+   # print(f"Hello {name}!")
  
 print(f"The function is over!")
 
@@ -14,3 +14,7 @@ def add():
 
 num_one=12
 num_two=14
+add()
+
+def clean(info):
+return info.strip().lower()
