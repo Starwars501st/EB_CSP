@@ -1,27 +1,30 @@
 # EB 6th Update financial calculator
 
-income = float(input("what is your monthly income?  "))
-rent = float(input("what is your monthly rent/mortgage?  "))
-utilities = float(input("what is your monthy utilities?  "))
-groceries = float(input("what is your monthly groceries?  "))
-transportation = float(input("what is your monthly transportation?  "))
+def get_input(prompt):
+    value = float(input(prompt))
+    return value  
 
-total = rent + utilities + transportation + groceries
+def calculate_percent(income, expense):
+    percent = (expense/income) * 100
+    return percent
 
-utilities_percentage = utilities*100/income
-rent_percentage = rent * 100/income
-groceries_percentage = groceries*100/income
-transportation_percentage = transportation*100/income
+income = get_input("Enter your monthly income: $")
+rent = get_input("Enter your monthly rent: $" )
+food =get_input("Enter your monthly food cost: $")
+savings =get_input("Enter how much you save monthly: $")
+entertainment = get_input("Enter your monthly entertainment expenses: $")
 
-print(f"Your total monthly expenses are: ${total:,.2f}")
+rent_percent = calculate_percent(income, rent)
+food_percent = calculate_percent(income, food)
+savings_percent = calculate_percent(income, savings)
+entertainment_percent = calculate_percent(income, entertainment)
 
-savings = income * 0.10
 
-remaining_money = income - (rent+utilities+groceries+transportation+savings)
+print("\n--- Expense Report ---")
+print(f"Rent: {rent_percent:.2f}% of income" )
+print(f"Food: {food_percent:.2f}% of income" )
+print(f"Savings: {savings_percent:.2f}% of income" )
+print(f"Entertainment: {entertainment_percent:.2f}% of income")
 
-print(f"\nYour rent is ${rent:.2f} and that is {rent_percentage:.1f}% of your income.")
-print(f"Your utilities are ${utilities:.2f} and that is {utilities_percentage:.1f}% of your income.")
-print(f"Your groceries are ${groceries:.2f} and that is {groceries_percentage:.1f}% of your income.")
-print(f"Your transportation is ${transportation:.2f} and that is {transportation_percentage:.1f}% of your income.")
-print(f"\nYou should save ${savings:.2f} a month, that is 10% of your income.")
-print(f"You have ${remaining_money:.2f} of spending money each month!")
+total_percent = rent_percent + food_percent + savings_percent + entertainment_percent
+print(f" \nTotal percentage of income accounted for: {total_percent:.2f}%")
