@@ -9,3 +9,5 @@ hour = current.hour
 print(f"The time is :{current}")
 print(f"The hour is:{hour}") 
 
+#Lists
+siblings = ["Lissie", "Oliver"]
