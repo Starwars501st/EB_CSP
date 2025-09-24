@@ -1,19 +1,14 @@
 # EB 6th FizzBuzz
 
-i = 0
-while i <21:
+for number in range(1, 51):
+  
+    if number % 3 == 0 and number % 5 == 0:
+      print("FizzBuzz")
 
-    if i % 2 == 0:
-    
-        print(f"{i} is even")
-    else:
-        print(f"{i} is odd")
-    i += 3
-
-    while x !=number:
+    elif number % 3 == 0:
         print("Fizz")
-        x =+ 1
-
-    while x !=number:
-        print("Buzz")  
-
+   
+    elif number % 5 == 0:
+        print("Buzz")
+    else:
+        print(number)  
