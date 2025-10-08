@@ -40,4 +40,3 @@ print(f"\nYou should save ${savings:.2f} a month, that is 10% of your income.")
 print(f"You have ${remaining_money:.2f} of spending money each month!")
 
 
-
