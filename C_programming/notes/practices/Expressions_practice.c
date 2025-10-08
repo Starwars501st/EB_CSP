@@ -36,4 +36,5 @@ printf("Equation 5: (%.0f / %.0f) + %.0f * %.0f = %.2f\n", l, m, n, o, result5);
 
 
     return 0;
+    
 }
