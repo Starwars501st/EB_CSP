@@ -19,7 +19,7 @@ printf("Equation 2: (%d + %d)^%d = %.0f\n", d, e, f, result2);
     int g = 18;
     int h = 4;
     int result3 = g % h;
-printf("Equation 3: %d %% %d = %d\n", g, h, result3)
+printf("Equation 3: %d %% %d = %d\n", g, h, result3);
 
     int i = 7;
     int j = 2;
