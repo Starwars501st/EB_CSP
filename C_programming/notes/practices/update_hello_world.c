@@ -1,4 +1,4 @@
-// EB 6th Updated World 
+// EB 6th Updated Hello World 
 
 #include <stdio.h>
 void sayHello(char name[]);
