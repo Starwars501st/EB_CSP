@@ -45,14 +45,14 @@ int main(void){
 int main (void){
 
 int rules;
-    printf("Would you like to see the rules type 1 for yes type 2 for no? \n");
+    printf("Would you like to see the rules? Type 1 for yes and type 2 for no.\n");
     scanf("%d", &rules);
 
-    if(rules == "1"){
+    if(rules == 1){
         printf("Hangman is a game where you have to guess a 5 letter word, you have 7 tries to guess the word or else the man will get hanged!!!, but if you guess the word without making 7 mistakes you will save the man and win!!");
     }
     else{
-        printf("Ok you already know the game!");
+        printf("Ok you already know the game! You may continue");
     }
 
 
