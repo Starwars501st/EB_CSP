@@ -56,4 +56,149 @@ int rules;
     }
 
 
+void displayWord(char word[], int guessed[]);
+int checkWin(int guessed[], int wordLength);
+void displayHangman(int triesLeft);
+
+int main() {
+   
+    char word[] = "computer"; 
+    int wordLength = strlen(Word);
+    int guessed[20] = {0}; /
+    int triesLeft = 6;     
+    char guess;
+    int correctGuess;
+
+    printf("===================================\n");
+    printf("       Welcome to hangman!\n");
+    printf("===================================\n");
+    printf("Try to guess the word.\n");
+    printf("You have %d tries.\n\n", triesLeft);
+
+    while (triesLeft > 0) {
+        displayHangman(triesLeft);
+        displayWord(secretWord, guessed);
+
+        printf("\nTries left: %d\n", triesLeft);
+        printf("Enter a letter: ");
+        scanf(" %c", &guess);
+        guess = tolower(guess);
+
+        correctGuess = 0; 
+
+        for (int i = 0; i < wordLength; i++) {
+            if (tolower(secretWord[i]) == guess && guessed[i] == 0) {
+                guessed[i] = 1;
+                correctGuess = 1;
+            }
+        }
+       
+        if (!correctGuess) {
+            printf("\nWrong guess!\n");
+            triesLeft--;
+        } else {
+            printf("\nGood guess!\n");
+        }
+
+    
+        if (checkWin(guessed, wordLength)) {
+            printf("\n Congratulations! You guessed the word: %s\n", secretWord);
+            break;
+        }
+    }
+
+    if (triesLeft == 0) {
+        displayHangman(triesLeft);
+        printf("\n Game over! The word was: %s\n", secretWord);
+    }
+
+    return 0;
+}
+void displayWord(char word[], int guessed[]) {
+    printf("\nWord: ");
+    for (int i = 0; i < strlen(word); i++) {
+        if (guessed[i])
+            printf("%c ", word[i]);
+        else
+            printf("_ ");
+    }
+    printf("\n");
+}
+
+int checkWin(int guessed[], int wordLength) {
+    for (int i = 0; i < wordLength; i++) {
+        if (guessed[i] == 0)
+            return 0;
+    }
+    return 1;
+}
+
+void displayHangman(int triesLeft) {
+    printf("\n");
+    switch (triesLeft) {
+        case 6:
+            printf("  +---+\n");
+            printf("  |   |\n");
+            printf("      |\n");
+            printf("      |\n");
+            printf("      |\n");
+            printf("      |\n");
+            printf("=========\n");
+            break;
+        case 5:
+            printf("  +---+\n");
+            printf("  |   |\n");
+            printf("  0   |\n");
+            printf("      |\n");
+            printf("      |\n");
+            printf("      |\n");
+            printf("=========\n");
+            break;
+        case 4:
+            printf("  +---+\n");
+            printf("  |   |\n");
+            printf("  0   |\n");
+            printf("  |   |\n");
+            printf("      |\n");
+            printf("      |\n");
+            printf("=========\n");
+            break;
+        case 3:
+            printf("  +---+\n");
+            printf("  |   |\n");
+            printf("  0   |\n");
+            printf(" /|   |\n");
+            printf("      |\n");
+            printf("      |\n");
+            printf("=========\n");
+            break;
+        case 2:
+            printf("  +---+\n");
+            printf("  |   |\n");
+            printf("  0   |\n");
+            printf(" /|\\  |\n");
+            printf("      |\n");
+            printf("      |\n");
+            printf("=========\n");
+            break;
+        case 1:
+            printf("  +---+\n");
+            printf("  |   |\n");
+            printf("  0   |\n");
+            printf(" /|\\  |\n");
+            printf(" /    |\n");
+            printf("      |\n");
+            printf("=========\n");
+            break;
+        case 0:
+            printf("  +---+\n");
+            printf("  |   |\n");
+            printf("  0   |\n");
+            printf(" /|\\  |\n");
+            printf(" / \\  |\n");
+            printf("      |\n");
+            printf("=========\n");
+            break;
+    }
+}
 }
